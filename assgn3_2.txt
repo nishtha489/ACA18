@@ -1,0 +1,92 @@
+<html>
+
+<head>
+<title>Assignment 3</title>
+<meta charset="UTF-8">
+
+<style>
+p {
+	margin-top : 30px;
+	font-size : 27px;  
+}
+
+input {
+	height : 30px ;
+	width : 250px ;
+	border-style : solid ;
+	border-radius : 5px ;
+}	
+
+.sub {
+	height : 26px;
+	width : 200px;
+	margin-left:60px; 
+	font-family:comic sans ms;
+
+</style>
+</head>
+
+<body>
+
+<p>
+<form method="post" id="form_1">
+<label style="font-family:comic sans ms;">Password:</label>
+<input type="password" maxlength=20 id="txtpassword" placeholder="Password" form="form1"></input>
+<label id="strength" style="font-family : comic sans ms;">   </label>
+<br>
+</form>
+<button class="sub" onclick="myFunction()">Submit</button>
+
+</p>
+
+
+<script>
+
+function myFunction(){
+
+//given list of passwords
+var passwords = ["123456", "password", "123456789" , "12345678", "12345", 
+		"111111", "1234567", "sunshine", "qwerty", "iloveyou", 
+		"princess", "admin", "welcome", "666666", "abc123", 
+		"football", "123123", "monkey", "654321", "!@#$%^&*", 
+		"aa123456", "charlie", "donald", "password1", "qwerty123"];
+
+var input_pass = document.getElementById("txtpassword").value;
+var i = 0, j = 0, len = 0;
+var input_score = 0;
+
+for(let len = 0; len < input_pass.length; len++){
+	input_score += input_pass.charCodeAt(len);
+}
+
+var password_score = 0;
+var flag;
+var difference;
+for(let i = 0; i < 25 ; i++){
+password_score = 0;
+	for(let j = 0; j < passwords[i].length; j++){
+		password_score += passwords[i].charCodeAt(j);	
+	}
+	difference = input_score - password_score;
+	if(Math.abs(difference) <= 200){
+		flag = 0;
+		break;
+	} else {
+		flag = 1;
+	}
+}
+
+if(flag){
+	if(input_pass.length == 0){
+		document.getElementById("strength").innerHTML = "Enter Password";
+	} else {
+		document.getElementById("strength").innerHTML = "strong";
+	}
+}else {
+	document.getElementById("strength").innerHTML = "Weak";
+}
+}
+</script>
+</body>
+
+</html>

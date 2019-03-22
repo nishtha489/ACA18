@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Registration Form</title>
+</head>
+
+<body>
+
+<h1>Registration Form</h1>
+<br>
+
+<form target="_blank" id="form1">
+Name: <input pattern="[a-zA-Z ]+" form="form1" maxlength=20 type="text" value="Name">
+<br>
+E-mail: <input form="form1" type="email" value="Email" pattern="[a-z]+@[a-z]+\.com">
+<br>
+Message: <textarea form="form1" rows=4 cols=25>Enter message here...</textarea>
+<br>
+<input type="submit" value="Submit">
+</form>
+
+</body>
+
+</html>
